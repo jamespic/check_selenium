@@ -5,4 +5,4 @@ CLASSPATH=${DIR}/lib/*:${DIR}
 
 #echo $CLASSPATH
 
-${DIR}/ephemeral-x.sh -q java -cp ${CLASSPATH} info.devopsabyss.CallSeleniumTest $@
+${DIR}/ephemeral-x.sh -q java -cp ${CLASSPATH} info.devopsabyss.CallSeleniumTest $@ 2> /dev/null

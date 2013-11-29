@@ -1,2 +1,9 @@
 *.iml
 .idea
+/bin/
+/dist/lib/
+/dist/README
+/dist/COPYING
+/check_selenium.tar.gz
+/selenium-server-linux.tar.gz
+/selenium-server-win.tar.gz

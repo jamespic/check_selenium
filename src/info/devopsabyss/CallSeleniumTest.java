@@ -31,6 +31,9 @@ import org.apache.commons.cli.ParseException;
 import org.apache.commons.cli.UnrecognizedOptionException;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
+import org.junit.runner.notification.Failure;
+import java.io.StringWriter;
+import java.io.PrintWriter;
 
 
 public class CallSeleniumTest {
@@ -97,8 +100,13 @@ public class CallSeleniumTest {
 				String failureMessage = result.getFailures().toString();
 				output = seTest.NAGIOS_TEXT_CRITICAL + " - " + cmd.getOptionValue("c");
 				if (cmd.hasOption("3")) {
-					output += " Test Failures | ExecTime=" + result.getRunTime() + "ms\n"
-						+ failureMessage;
+					output += " Test Failures | ExecTime=" + result.getRunTime() + "ms\n";
+          StringWriter sWr = new StringWriter();
+          PrintWriter wr = new PrintWriter(sWr);
+          for (Failure fail: result.getFailures()) {
+            fail.getException().printStackTrace(wr);
+          }
+          output += sWr.toString();
 				} else {
 					output += " Test Failures: " + withoutNewlines(failureMessage) + " | ExecTime=" + result.getRunTime() + "ms";
 				}

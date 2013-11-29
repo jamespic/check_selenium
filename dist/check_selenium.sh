@@ -6,4 +6,4 @@ CLASSPATH=${DIR}/lib/*
 
 #echo $CLASSPATH
 
-${JAVA_HOME}/bin/java -cp ${CLASSPATH} info.devopsabyss.CallSeleniumTest $@
+./ephemeral-x.sh -q1 ${JAVA_HOME}/bin/java -cp ${CLASSPATH} info.devopsabyss.CallSeleniumTest $@
